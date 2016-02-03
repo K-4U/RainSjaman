@@ -33,6 +33,15 @@ public class Sjaman {
             if (world.provider.getDimensionId() != 0) {
                 return;
             }
+            if(RsConfig.INSTANCE.getBool("alwaysRaining")){
+                if(!world.isRaining()){
+                    world.getWorldInfo().setRaining(true);
+                }
+            }else if(RsConfig.INSTANCE.getBool("neverRaining")){
+                if(world.isRaining()){
+                    world.getWorldInfo().setRaining(false);
+                }
+            }
             if (!isWaitingForRain && !world.isRaining() && !isRaining) {
                 //Not waiting, not raining, wait what?
                 //First startup, I could save all of this to NBT but.. meh
@@ -88,5 +97,13 @@ public class Sjaman {
             return;
         }
         w.getWorldInfo().setRaining(true);
+    }
+
+    public static void stopRain(World w) {
+        if(w.provider.getDimensionId() != 0){
+            return;
+        }
+        w.getWorldInfo().setRaining(false);
+
     }
 }

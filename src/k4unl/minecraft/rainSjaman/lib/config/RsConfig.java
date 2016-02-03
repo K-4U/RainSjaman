@@ -15,5 +15,7 @@ public class RsConfig extends Config {
         configOptions.add(new ConfigOption("minRainTime", 10*60).setComment("What's the minimum time a rain storm lasts?"));
         configOptions.add(new ConfigOption("maxRainTime", 20*60).setComment("What's the maximum time a rain storm lasts?"));
         configOptions.add(new ConfigOption("thunderstormChance", .8).setComment("What's the chance a rain storm will be a thunder storm?"));
+        configOptions.add(new ConfigOption("alwaysRaining", false).setComment("Set this to true if you want the rain to be infinite. I don't see why you'd want that, but the option is here!"));
+        configOptions.add(new ConfigOption("neverRaining", false).setComment("Set this to true if you want it to never rain at all. Keep in mind that the alwaysRaining takes precedence"));
     }
 }
