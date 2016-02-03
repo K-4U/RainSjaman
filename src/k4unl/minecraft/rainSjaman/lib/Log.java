@@ -1,7 +1,7 @@
-package k4unl.minecraft.tmr.lib;
+package k4unl.minecraft.rainSjaman.lib;
 
-import k4unl.minecraft.tmr.lib.config.ModInfo;
-import k4unl.minecraft.tmr.lib.config.TmrConfig;
+import k4unl.minecraft.rainSjaman.lib.config.ModInfo;
+import k4unl.minecraft.rainSjaman.lib.config.RsConfig;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +30,7 @@ public class Log {
 
 
     public static void debug(String message){
-        if(TmrConfig.INSTANCE.getBool("debug")){
+        if(RsConfig.INSTANCE.getBool("debug")){
             logger.log(Level.INFO, message);
         }
     }

@@ -1,4 +1,4 @@
-package k4unl.minecraft.tmr.commands;
+package k4unl.minecraft.rainSjaman.commands;
 
 
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
@@ -6,6 +6,6 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 public class Commands {
     public static void init(FMLServerStartingEvent event) {
 
-        event.registerServerCommand(new CommandTooMuchRain());
+        event.registerServerCommand(new CommandRainSjaman());
     }
 }

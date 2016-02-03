@@ -1,11 +1,11 @@
-package k4unl.minecraft.tmr.lib.config;
+package k4unl.minecraft.rainSjaman.lib.config;
 
 import k4unl.minecraft.k4lib.lib.config.Config;
 import k4unl.minecraft.k4lib.lib.config.ConfigOption;
 
-public class TmrConfig extends Config {
+public class RsConfig extends Config {
 
-    public static final TmrConfig INSTANCE = new TmrConfig();
+    public static final RsConfig INSTANCE = new RsConfig();
 
     public void init() {
 

@@ -1,7 +1,7 @@
-package k4unl.minecraft.tmr.events;
+package k4unl.minecraft.rainSjaman.events;
 
-import k4unl.minecraft.tmr.lib.Log;
-import k4unl.minecraft.tmr.lib.config.TmrConfig;
+import k4unl.minecraft.rainSjaman.lib.Log;
+import k4unl.minecraft.rainSjaman.lib.config.RsConfig;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -37,20 +37,20 @@ public class Sjaman {
                 //Not waiting, not raining, wait what?
                 //First startup, I could save all of this to NBT but.. meh
                 Random rand = new Random();
-                int nextRainTicks = (rand.nextInt(TmrConfig.INSTANCE.getInt("maxRainlessTime") - TmrConfig.INSTANCE.getInt("minRainlessTime")) +
-                  TmrConfig.INSTANCE.getInt("minRainlessTime")) * 20;
+                int nextRainTicks = (rand.nextInt(RsConfig.INSTANCE.getInt("maxRainlessTime") - RsConfig.INSTANCE.getInt("minRainlessTime")) +
+                  RsConfig.INSTANCE.getInt("minRainlessTime")) * 20;
                 Log.debug("Waiting on rain, which should arrive in " + nextRainTicks + " ticks");
                 world.getWorldInfo().setRainTime(nextRainTicks);
                 isWaitingForRain = true;
             } else if (isWaitingForRain && world.isRaining() && !isRaining) {
                 //The rain has started!
                 Random rand = new Random();
-                rainMaxTicks = (rand.nextInt(TmrConfig.INSTANCE.getInt("maxRainTime") - TmrConfig.INSTANCE.getInt("minRainTime")) +
-                  TmrConfig.INSTANCE.getInt("minRainTime")) * 20;
+                rainMaxTicks = (rand.nextInt(RsConfig.INSTANCE.getInt("maxRainTime") - RsConfig.INSTANCE.getInt("minRainTime")) +
+                  RsConfig.INSTANCE.getInt("minRainTime")) * 20;
                 rainTicks = 0;
                 Log.debug("Rain started! It should last " + rainMaxTicks + " ticks");
 
-                boolean shouldThunder = rand.nextDouble() >= TmrConfig.INSTANCE.getDouble("thunderstormChance");
+                boolean shouldThunder = rand.nextDouble() >= RsConfig.INSTANCE.getDouble("thunderstormChance");
                 world.getWorldInfo().setThundering(shouldThunder);
                 if (shouldThunder) {
                     Log.debug("Oh, and it's a thunder storm!");

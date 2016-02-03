@@ -1,9 +1,9 @@
-package k4unl.minecraft.tmr.commands;
+package k4unl.minecraft.rainSjaman.commands;
 
 import k4unl.minecraft.k4lib.commands.CommandK4Base;
-import k4unl.minecraft.tmr.events.Sjaman;
-import k4unl.minecraft.tmr.lib.config.ModInfo;
-import k4unl.minecraft.tmr.lib.config.TmrConfig;
+import k4unl.minecraft.rainSjaman.events.Sjaman;
+import k4unl.minecraft.rainSjaman.lib.config.ModInfo;
+import k4unl.minecraft.rainSjaman.lib.config.RsConfig;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -12,17 +12,17 @@ import net.minecraft.util.EnumChatFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandTooMuchRain extends CommandK4Base {
+public class CommandRainSjaman extends CommandK4Base {
 
-    public CommandTooMuchRain() {
+    public CommandRainSjaman() {
 
-        aliases.add("tmr");
+        aliases.add("rs");
     }
 
     @Override
     public String getCommandName() {
 
-        return "toomuchrain";
+        return "rainsjaman";
     }
 
     @Override
@@ -39,7 +39,7 @@ public class CommandTooMuchRain extends CommandK4Base {
                 Sjaman.forceRain(sender.getEntityWorld());
                 sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GOLD + "Oeba oeba oeba *dances*"));
             } else if(args[0].equalsIgnoreCase("version")){
-                sender.addChatMessage(new ChatComponentText("TooMuchRain V" + ModInfo.VERSION));
+                sender.addChatMessage(new ChatComponentText("RainSjaman V" + ModInfo.VERSION));
             }
         }else if(args.length == 3){
             if(args[0].equalsIgnoreCase("set")){
@@ -48,11 +48,11 @@ public class CommandTooMuchRain extends CommandK4Base {
                     case "maxRainlessTime":
                     case "minRainTime":
                     case "maxRainTime":
-                        TmrConfig.INSTANCE.setInt(args[1], Integer.valueOf(args[2]));
+                        RsConfig.INSTANCE.setInt(args[1], Integer.valueOf(args[2]));
                         sender.addChatMessage(new ChatComponentText("Saved!"));
                         break;
                     case "thunderstormChance":
-                        TmrConfig.INSTANCE.setDouble(args[1], Double.valueOf(args[2]));
+                        RsConfig.INSTANCE.setDouble(args[1], Double.valueOf(args[2]));
                         sender.addChatMessage(new ChatComponentText("Saved!"));
                         break;
                     default:

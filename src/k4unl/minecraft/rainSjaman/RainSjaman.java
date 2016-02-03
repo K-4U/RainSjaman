@@ -1,12 +1,12 @@
-package k4unl.minecraft.tmr;
+package k4unl.minecraft.rainSjaman;
 
 
 import k4unl.minecraft.k4lib.lib.config.ConfigHandler;
-import k4unl.minecraft.tmr.commands.Commands;
-import k4unl.minecraft.tmr.events.Sjaman;
-import k4unl.minecraft.tmr.lib.Log;
-import k4unl.minecraft.tmr.lib.config.ModInfo;
-import k4unl.minecraft.tmr.lib.config.TmrConfig;
+import k4unl.minecraft.rainSjaman.commands.Commands;
+import k4unl.minecraft.rainSjaman.events.Sjaman;
+import k4unl.minecraft.rainSjaman.lib.Log;
+import k4unl.minecraft.rainSjaman.lib.config.ModInfo;
+import k4unl.minecraft.rainSjaman.lib.config.RsConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -21,19 +21,19 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
   dependencies = "required-after:k4lib"
 )
 
-public class TooMuchRain {
+public class RainSjaman {
     @Mod.Instance(value = ModInfo.ID)
-    public static TooMuchRain instance;
+    public static RainSjaman instance;
 
-    private ConfigHandler tmrConfigHandler = new ConfigHandler();
+    private ConfigHandler rsConfigHandler = new ConfigHandler();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 
         Sjaman.init();
         Log.init();
-        TmrConfig.INSTANCE.init();
-        tmrConfigHandler.init(TmrConfig.INSTANCE, event.getSuggestedConfigurationFile());
+        RsConfig.INSTANCE.init();
+        rsConfigHandler.init(RsConfig.INSTANCE, event.getSuggestedConfigurationFile());
     }
 
     @Mod.EventHandler

@@ -1,13 +1,13 @@
-TooMuchRain
+RainSjaman
 =========
 
 ![](logo.png)
 
-TooMuchRain is a mod for people who think it rains too much. This mod will give you complete control.
+RainSjaman is a mod for people who think it rains too much. This mod will give you complete control.
 
 
 ## Links ##
-Curse: [http://minecraft.curseforge.com/projects/too-much-rain](http://minecraft.curseforge.com/projects/too-much-rain)
+Curse: [http://minecraft.curseforge.com/projects/rainsjaman](http://minecraft.curseforge.com/projects/rainsjaman)
 
 Required mod: [K4Lib](http://minecraft.curseforge.com/mc-mods/224740-k4lib)
 
