@@ -30,7 +30,7 @@ public class Sjaman {
 
         if (event.phase == TickEvent.Phase.END) {
             World world = event.world;
-            if (world.provider.getDimensionId() != 0) {
+            if (world.provider.getDimension() != 0) {
                 return;
             }
             if(RsConfig.INSTANCE.getBool("alwaysRaining")){
@@ -93,14 +93,14 @@ public class Sjaman {
 
     public static void forceRain(World w) {
 
-        if (w.provider.getDimensionId() != 0) {
+        if (w.provider.getDimension() != 0) {
             return;
         }
         w.getWorldInfo().setRaining(true);
     }
 
     public static void stopRain(World w) {
-        if(w.provider.getDimensionId() != 0){
+        if(w.provider.getDimension() != 0){
             return;
         }
         w.getWorldInfo().setRaining(false);
