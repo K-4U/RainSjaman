@@ -22,13 +22,13 @@ public class CommandRainSjaman extends CommandK4Base {
     }
 
     @Override
-    public String getCommandName() {
+    public String getName() {
 
         return "rainsjaman";
     }
 
     @Override
-    public String getCommandUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
 
         return "force | set <configvar> <value>";
     }
@@ -39,12 +39,12 @@ public class CommandRainSjaman extends CommandK4Base {
             if(args[0].equalsIgnoreCase("force")){
                 //Forces rain
                 Sjaman.forceRain(sender.getEntityWorld());
-                sender.addChatMessage(new TextComponentString(TextFormatting.GOLD + "Oeba oeba oeba *dances*"));
+                sender.sendMessage(new TextComponentString(TextFormatting.GOLD + "Oeba oeba oeba *dances*"));
             } else if(args[0].equalsIgnoreCase("version")){
-                sender.addChatMessage(new TextComponentString("RainSjaman V" + ModInfo.VERSION));
+                sender.sendMessage(new TextComponentString("RainSjaman V" + ModInfo.VERSION));
             } else if(args[0].equalsIgnoreCase("stop")){
                 Sjaman.stopRain(sender.getEntityWorld());
-                sender.addChatMessage(new TextComponentString(TextFormatting.GOLD + "Oeba oeba oeba *dances*"));
+                sender.sendMessage(new TextComponentString(TextFormatting.GOLD + "Oeba oeba oeba *dances*"));
             }
         }else if(args.length == 3){
             if(args[0].equalsIgnoreCase("set")){
@@ -54,18 +54,18 @@ public class CommandRainSjaman extends CommandK4Base {
                     case "minraintime":
                     case "maxraintime":
                         RsConfig.INSTANCE.setInt(args[1], Integer.valueOf(args[2]));
-                        sender.addChatMessage(new TextComponentString("Saved!"));
+                        sender.sendMessage(new TextComponentString("Saved!"));
                         break;
                     case "thunderstormchance":
                         RsConfig.INSTANCE.setDouble(args[1], Double.valueOf(args[2]));
-                        sender.addChatMessage(new TextComponentString("Saved!"));
+                        sender.sendMessage(new TextComponentString("Saved!"));
                         break;
                     case "alwaysraining":
                     case "neverraining":
                         RsConfig.INSTANCE.setBool(args[1], (args[2].equalsIgnoreCase("on") || args[2].equalsIgnoreCase("true")));
                         break;
                     default:
-                        sender.addChatMessage(new TextComponentString(TextFormatting.RED + "This option is not available"));
+                        sender.sendMessage(new TextComponentString(TextFormatting.RED + "This option is not available"));
                 }
             }
         }
@@ -73,7 +73,7 @@ public class CommandRainSjaman extends CommandK4Base {
 
 
     @Override
-    public List<String> getTabCompletionOptions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos) {
+    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos) {
 
         List<String> ret = new ArrayList<>();
         if(args[0].equalsIgnoreCase("")){
