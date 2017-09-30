@@ -71,7 +71,7 @@ public class Sjaman {
                 //Rain is ongoing:
                 rainTicks++;
                 if (rainTicks >= rainMaxTicks) {
-                    world.getWorldInfo().setRaining(false);
+                    stopRain(world);
                     isRaining = false;
                     Log.debug("Rain force-stopped after " + rainTicks + " ticks");
                 }
@@ -80,11 +80,11 @@ public class Sjaman {
                 rainTicks++;
                 Log.debug("Rain stopped after " + rainTicks + " ticks");
                 if (rainTicks >= rainMaxTicks) {
-                    world.getWorldInfo().setRaining(false);
+                    stopRain(world);
                     isRaining = false;
                     Log.debug("This was okay");
                 } else {
-                    world.getWorldInfo().setRaining(true);
+                    forceRain(world);
                     Log.debug("This was not okay, restarting the rain!");
                 }
             }
